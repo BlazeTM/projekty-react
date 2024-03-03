@@ -1,0 +1,26 @@
+const [list, setList] = useState([{title: "title", description: "description"}]);
+const [title, setTitle] = useState("");
+const [description, setDescription] = useState("");
+const listItems = list.map((list, index) => <div  className='listItem' key={index}>
+  <h3 className='title_listitem'>Title: <br />{list.title}</h3>
+  <p className='description_listitem'> Description: <br />{list.description}</p>
+  <button>Delete note</button>
+</div>)
+  function handleTitleChange(){
+      setTitle(event.target.value);
+  }
+  function handleDescriptionChange(){
+      setDescription(event.target.value);
+  }
+  function deleteNote(id){
+    
+  }
+
+<h1>EZZ</h1>
+      Title: <input type="text" onChange={handleTitleChange} /> <br />
+      Description: <input type="text" onChange={handleDescriptionChange} /> <br />
+      <button onClick={() => {
+        setList(list => [...list, {title: title,description: description}]);
+      }}>Save note</button>
+      <button onClick={() => {console.log(list);}}>Show Notes</button>
+      <div className='items'>{listItems}</div>
